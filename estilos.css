@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz@0,6..12;1,6..12&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,700;1,6..12,700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding: 0;
+   font-family: 'MiFuente', sans-serif;
+
+}
+@font-face {
+    font-family: 'MiFuente'; /* Nombre que le das a tu fuente */
+    src: url('Sirukota.ttf') format('truetype'); /* Ruta a tu fuente */
+    /* Puedes agregar estilos adicionales aquí, como weight (peso) y style (estilo) si tu fuente lo proporciona */
+}
+
+navbar-brand{
+
+}
+body {
+     background-image: url('f.png'); /* Ruta de tu imagen de fondo */
+     background-size: cover; /* Ajusta la imagen para cubrir todo el fondo */
+     background-position: center; /* Centra la imagen de fondo */
+      background-attachment: fixed;
+   }
+   .image img{
+     width:1200;
+     height:653px;
+     margin-top:-380px;
+
+   }
+   .image{
+
+     background-color:black;
+     width:auto;
+     height:700px;
+     display: flex;
+  flex-direction: column; /* Alinea los elementos en columna */
+  align-items: flex-start; /* Alinea los elementos en el inicio (izquierda) */
+
+   }
+   .texto{
+     margin-left: 1000px; /* Mueve el texto a la derecha */
+     color:#e0e1e9;
+     margin-top:300px;
+     text-align: center;
+   }
+   p{
+
+     margin-top:20px;
+     font-family: sans-serif;
+     font-weight: 500;
+   }
+
+   h1{
+     font-weight: 15px;
+   }
+   h2{
+     font-weight: 20px;
+   }
+
+.buscados{
+  margin-top:50px;
+  text-align: center;
+}
+.linea-horizontal {
+  border-top: 3px solid white; /* Línea horizontal blanca */
+  position: absolute; /* Posicionamiento absoluto */
+  width: 100%; /* Ancho completo */
+  top: 8%; /* Alineación vertical en el centro */
+  transform: translateY(-50%); /* Ajuste fino de la alineación vertical */
+  margin-top:20px;
+}
+.linea-horizontal2{
+  border-top: 3px solid white; /* Línea horizontal blanca */
+  position: absolute; /* Posicionamiento absoluto */
+  width: 100%; /* Ancho completo */
+  top: 98%; /* Alineación vertical en el centro */
+  transform: translateY(-50%); /* Ajuste fino de la alineación vertical */
+
+}
+/*
+.wrapper{
+  margin-top:30px;
+  max-width: 1100px;
+  width:100px;
+
+
+}
+.card .img img{
+  width:200px;
+  height:300px;
+  object-fit:cover;
+  border-radius:8px;
+  margin:30px;
+}
+.carousel .card{
+  list-style:none;
+  background:#e0e1e9;
+  height:500px;
+  border-radius:8px;
+text-indent: center;
+text-align: center;
+align-items:center;
+justify-content:center;
+display:flex;
+
+border:3px solid grey;
+
+
+
+}
+.card{
+  width:900px;
+  Height:700px;
+}
+.texto{
+  width:650px;
+  font-weight:20px;
+}
+.wrappper .carousel{
+  display:flex;
+  flex-wrap: nowrap;
+ overflow-x: auto;
+  grid-auto-flow:column;
+  grid-auto-columns: calc((100%/3)-12px);
+  gap:16px;
+  overflow:hidden;
+}*/
+@media screen and(min-width:700px) {
+ .carousel-inner{
+   display:flex;
+   flex-direction: row;
+ }
+ .carousel-item{
+   display:block;
+   margin-right:0;
+   flex:0 0 calc(100%/3);
+   display: flex;
+     flex-wrap: wrap;
+       gap: 30px;
+
+ }
+
+}
+.carousel-inner{
+  padding:1em;
+}
+.card{
+  margin:0.5em;
+display: inline-block;
+  flex-direction: row;
+}

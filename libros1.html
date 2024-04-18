@@ -12,74 +12,71 @@
   </head>
   <body>
 
-    <nav class="navbar navbar-dark bg-dark fixed-top">
-      <div class="container-fluid">
-        <a  href="libreria.html">
-          <button type="button" class="btn btn-outline-secondary"style="  font-family: sans-serif;font-weight: bold;">Inicio</button>
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
-          <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">GENEROS LITERARIOS</h5>
-            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-          </div>
-          <div class="offcanvas-body">
-            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-              <li class="nav-item">
 
-                <a class="nav-link active" aria-current="page" href="#">Todos</a>
-              </li>
 
-              <li class="nav-item">
-                <a class="nav-link" href="#">Drama</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Fantasia</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Romance</a>
-              </li>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
 
-            </ul>
-            <form class="d-flex mt-3" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-success" type="submit">Search</button>
-            </form>
-          </div>
-        </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="libreria.html">inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="populares.html">Favoritos</a>
+          </li>
+          <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Dropdown button
+  </button>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="#">Action</a></li>
+    <li><a class="dropdown-item" href="#">Another action</a></li>
+    <li><a class="dropdown-item" href="#">Something else here</a></li>
+  </ul>
+</div>
+
+  </ul>
+</div>
+
+
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Buscar</button>
+        </form>
       </div>
-    </nav>
-
-
-
-
-
+    </div>
+  </nav>
   <!--libros-->
-  <div class="j"><h1>-------------------------------- Libros  ------------------------------------    </h1></div>
+  <div class="buscados"><h1>-------------------------------- Libros  ------------------------------------    </h1></div>
   <div class="separador"></div>
   <div class="container">
     <div class="item">
       <figure>
-        <img src="l.webp"
+        <img src="elhombre.jpg"
         alt="libro"
-        width="200" height="370">
+        width="150" height="200">
       </figure>
       <div class="info-products">
-        <h2 id="nombre">La Chica del tren</h2>
-        <p id="precio">Emily Blunt</p>
+        <h2 id="nombre">El Hombre Ilustrado</h2>
+        <p id="precio">Ray Bradbury</p>
+        <button class="Button" type="button" >Solicitar Prestamo</button>
       </div>
       </div>
       <div class="item">
-
+        <figure>
           <img src="lqnt.jpg"
           alt="imagen dorito"
-          width="150" height="160">
-
+          width="150" height="200">
+        </figure>
         <div class="info-products">
           <h2 id="nombre">Lo que no te mata</h2>
           <p id="precio">David Lagercrants</p>
+          <button class="Button" type="button"  >Solicitar Prestamo</button>
         </div>
   </div>
         <div class="item">
@@ -91,6 +88,7 @@
           <div class="info-products">
             <h2 id="nombre">Orgulo y Prejuicio</h2>
             <p  id="precio">Keira Knightle</p>
+            <button class="Button" type="button" onclick="agregarProducto('Takis', 20.00);mostrarNotificacion();" >Solicitar Prestamo</button>
 
 
   </div>
@@ -108,6 +106,7 @@
 
 
               <p  id="precio">Edmondo De Amcis</p>
+            <button class="Button" type="button" onclick="agregarProducto('Rufles', 25.00);mostrarNotificacion();" >Solicitar Prestamo</button>
 
 
 
@@ -125,6 +124,7 @@
     <div class="info-products">
       <h2 id="nombre">Don Enrique el doliente</h2>
       <p  id="precio">Mariano José de Larra</p>
+      <button class="Button" type="button"  >Solicitar Prestamo</button>
 
 
     </div>
@@ -141,6 +141,7 @@
       <h2 id="nombre">La edad de la inocencia</h2>
 
       <p  id="precio">Edith Wharton</p>
+      <button class="Button"  type="button" onclick="agregarProducto('Canelitas', 15.00);mostrarNotificacion();" >Solicitar Prestamo</button>
 
 
     </div>
@@ -157,6 +158,7 @@
       <h2 id="nombre">Sherlock Holmes</h2>
       <p  id="precio">Arthurr Conan Doyle</p>
       <div class="separador"></div>
+      <button class="Button" type="button" onclick="agregarProducto('Principe', 20.00);mostrarNotificacion();" >Solicitar Prestamo</button>
 
 
     </div>
@@ -171,6 +173,7 @@
     <div class="info-products">
       <h2 id="nombre">El abanico de lady Windermere</h2>
 
+    <button class="Button" type="button" onclick="agregarProducto('F.de Naranjo', 25.00);mostrarNotificacion();" >Solicitar Prestamo</button>
 
 
     </div>
@@ -190,7 +193,7 @@
       <a class="page-link" href="libros1.html">2</a>
     </li>
     <li class="page-item">
-      <a class="page-link" href="libros2.html">3</a>
+      <a class="page-link" href="#">3</a>
     </li>
     <li class="page-item">
       <a class="page-link" href="#">Siguiente</a>

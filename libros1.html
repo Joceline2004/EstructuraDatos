@@ -3,112 +3,187 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="5">
+    <meta http-equiv="refresh" content="100">
     <title>biblioteca</title>
-      <link rel="stylesheet" href="estilos.css">
+      <link rel="stylesheet" href="{{ url_for('static', filename='estilos.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz@0,6..12;1,6..12&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
   </head>
   <body>
 
+    <nav class="navbar navbar-dark bg-dark fixed-top">
+      <div class="container-fluid">
+        <a  href="libreria.html">
+          <button type="button" class="btn btn-outline-secondary"style="  font-family: sans-serif;font-weight: bold;">Inicio</button>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">GENEROS LITERARIOS</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+              <li class="nav-item">
 
+                <a class="nav-link active" aria-current="page" href="{{ url_for('libros')}}">Todos</a>
+              </li>
 
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('drama')}}">Drama</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('fantasia')}}">Fantasia</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('romance')}}">Romance</a>
+              </li>
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="libreria.html">inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="populares.html">Favoritos</a>
-          </li>
-          <div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Dropdown button
-  </button>
-  <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="#">Action</a></li>
-    <li><a class="dropdown-item" href="#">Another action</a></li>
-    <li><a class="dropdown-item" href="#">Something else here</a></li>
-  </ul>
-</div>
+            </ul>
+            <form class="d-flex mt-3" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-success" type="submit">Search</button>
 
-  </ul>
-</div>
-
-
-        </ul>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Buscar</button>
-        </form>
+            </form>
+          </div>
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
+
+
+
+
+
   <!--libros-->
-  <div class="buscados"><h1>-------------------------------- Libros  ------------------------------------    </h1></div>
+
+  <div class="separadorg"></div>
+  <div class="hrtext"><h1 class="l">Libros</h1></div>
   <div class="separador"></div>
   <div class="container">
     <div class="item">
-      <figure>
-        <img src="elhombre.jpg"
+        <img src="elm.webp"
         alt="libro"
-        width="150" height="200">
-      </figure>
+        width="200" height="370" class="iimage">
+
       <div class="info-products">
-        <h2 id="nombre">El Hombre Ilustrado</h2>
-        <p id="precio">Ray Bradbury</p>
-        <button class="Button" type="button" >Solicitar Prestamo</button>
+        <h2 class="nombre">El maravilloso mago de oz</h2>
+        <p class="precio">L.frank Baum</p>
+        <!-- Botón para mostrar el popup -->
+        <button class="popup-btn" onclick="document.getElementById('popup9').classList.add('active')">Info</button>
+
+        <!-- Popup -->
+        <div id="popup9" class="popup">
+            <div class="popup-content">
+                <span class="close" onclick="document.getElementById('popup9').classList.remove('active')">&times;</span>
+                 <div class="separador"></div>
+                <h2 >El maravilloso mago de oz</h2>
+                <p>L.frank Baum</p>
+                <p>Dorothy es una niña que vive felizmente en la pequeña granja que sus tíos Henry y Em tienen en algún lugar de Kansas. Debido a un ciclón, Dorothy, junto a su fiel perrito Toto, es arrancada del mundo gris en el que vivía y acaba en el colorido mundo de Oz, donde deberá viajar a la Ciudad Esmeralda para encontrarse con el Gran Mago Oz, quien puede ayudarle a volver a casa. Parte decidida hacia su destino -equipada solo con el beso de despedida que la Bruja del Norte le dio en la frente, su perrito, su cesta y unos Zapatos Plateados- siguiendo la única indicación que se le ha dado: seguir siempre el camino de ladrillos amarillos.
+</p>
+                <!-- Enlace para abrir la página -->
+                 <a href="http://bibliotecadigital.ilce.edu.mx/Colecciones/CuentosMas/ElMaravillosoMagoOz_Baum.pdf" target="_blank"><button type="button" class="p-button">Prestamo</button></a>
+                 <div class="separador"></div>
+                 <button type="submit" formaction="#" ></button>
+
+                   <div class="separador"></div>
+            </div>
+        </div>
       </div>
       </div>
       <div class="item">
-        <figure>
-          <img src="lqnt.jpg"
+
+          <img src="{{ url_for('static', filename='lb.png') }}"
           alt="imagen dorito"
-          width="150" height="200">
-        </figure>
+          width="150" height="160" class="iimage">
         <div class="info-products">
-          <h2 id="nombre">Lo que no te mata</h2>
-          <p id="precio">David Lagercrants</p>
-          <button class="Button" type="button"  >Solicitar Prestamo</button>
+          <h2 class="nombre">Los buscadores de tesoros</h2>
+          <p class="precio">Washington Irving</p>
+          <!-- Botón para mostrar el popup -->
+          <button class="popup-btn" onclick="document.getElementById('popup10').classList.add('active')">Info</button>
+
+          <!-- Popup -->
+          <div id="popup10" class="popup">
+              <div class="popup-content">
+                  <span class="close" onclick="document.getElementById('popup10').classList.remove('active')">&times;</span>
+                   <div class="separador"></div>
+                  <h2 >Los buscadores de tesoros</h2>
+                  <p>Washington Irving</p>
+                  <p>Los piratas, sujetos renegados de todos los climas y de todos los países de la Tierra en palabras de Washington Irving, viven en este relato sus últimos días de gloria. Como eco lejano de sus sanguinarias hazañas, quedan las leyendas sobre sus tesoros enterrados en playas y bosques, a cuyo cuidado suele permanecer el diablo. ¡Cuán dignos de compasión son los incautos que se atreven a buscarlos! Sufrirán mil y una desgracias entre fantasmas, delirios peligrosos y sueños convertidos en la peor pesadilla, apenas comiencen a emplear la pala.</p>
+                   <a href="https://web.seducoahuila.gob.mx/biblioweb/upload/LOS%20BUSCADORES%20DE%20TRESOROS.pdf" target="_blank"><button type="button" class="p-button">Prestamo</button></a>
+                   <div class="separador"></div>
+                   <button type="submit" formaction="#" ></button>
+
+                     <div class="separador"></div>
+              </div>
+          </div>
         </div>
   </div>
         <div class="item">
-          <figure>
-            <img src="oy.jpg"
-            alt="imagen takis"
-            width="150" height="200">
-          </figure>
-          <div class="info-products">
-            <h2 id="nombre">Orgulo y Prejuicio</h2>
-            <p  id="precio">Keira Knightle</p>
-            <button class="Button" type="button" onclick="agregarProducto('Takis', 20.00);mostrarNotificacion();" >Solicitar Prestamo</button>
 
+            <img src="{{ url_for('static', filename='a.jpeg') }}"
+            alt="imagen takis"
+            width="150" height="200"class="iimage">
+
+          <div class="info-products">
+            <h2 class="nombre">El Amante de Lady Chatterley</h2>
+            <div class="separador"></div>
+            <p  class="precio"> D. H. Lawrence</p>
+            <!-- Botón para mostrar el popup -->
+            <button class="popup-btn" onclick="document.getElementById('popup11').classList.add('active')">Info</button>
+
+            <!-- Popup -->
+            <div id="popup11" class="popup">
+                <div class="popup-content">
+                    <span class="close" onclick="document.getElementById('popup11').classList.remove('active')">&times;</span>
+                     <div class="separador"></div>
+                    <h2 >El Amante de Lady Chatterley</h2>
+                    <p> D. H. Lawrence</p>
+                    <p>La historia relata la vida de Constanza, quien está casada con un hombre de clase alta parapléjico y mantiene un romance con otro perteneciente a la clase obrera.
+El marido quedó parapléjico a raíz de una lesión en la guerra. Esto y el hecho de no ser demasiado cariñoso con Constanza, desemboca en el alejamiento emocional de la pareja. Constanza, debido a su frustración sexual, tiene una aventura con Oliver Mellors, el guardia de coto y, por tanto, un hombre de la clase obrera. Lawrence se cuida de todos modos en remarcar que si bien Mellors pertenece a la clase obrera, es distinto, de gustos literarios refinados, un agudo observador que pivota entre dos mundos: El de la clase obrera, "vulgar" y que utiliza dialecto y el mundo de las elites aristocráticas al que claramente no pertenece pero que conoce por haber hecho carrera en el ejército, -a lo largo de la narración Mellors también utiliza a la perfección el inglés puro-. Lo cierto es que Mellors es un solitario que no se halla cómodo en ninguno de los dos lugares. Su profesión de guardabosques en un bosque que es una pequeña mancha verde en un mundo industrializado, es la perfecta metáfora de quién es él y cómo se siente.</p>
+                    <!-- Enlace para abrir la página -->
+                     <a href="https://web.seducoahuila.gob.mx/biblioweb/upload/Lawrence,%20D.H.%20-%20El%20Amante%20de%20Lady%20Ch.pdf" target="_blank"><button type="button" class="p-button">Prestamo</button></a>
+                     <div class="separador"></div>
+                     <button type="submit" formaction="#" ></button>
+
+                       <div class="separador"></div>
+                </div>
+            </div>
 
   </div>
   </div>
           <div class="item">
             <figure>
-              <img src="corazon.jpeg"
+              <img src="{{ url_for('static', filename='losm.jpeg') }}"
               alt="imagen rufles"
-              width="150" height="200">
+              width="150" height="200" class="iimage">
             </figure>
             <div class="info-products">
 <div class="separador"></div>
-              <h2 id="nombre">Corazon</h2>
-              <div class="separador"></div>
+              <h2 class="nombre">Los Miserables</h2>
+              <p  class="precio">Víctor Hugo</p>
+              <!-- Botón para mostrar el popup -->
+              <button class="popup-btn" onclick="document.getElementById('popup12').classList.add('active')">Info</button>
 
+              <!-- Popup -->
+              <div id="popup12" class="popup">
+                  <div class="popup-content">
+                      <span class="close" onclick="document.getElementById('popup12').classList.remove('active')">&times;</span>
+                       <div class="separador"></div>
+                      <h2 >Los Miserables</h2>
+                      <p>Víctor Hugo</p>
+                      <p>Jean Valjean es un ex-presidiario. Cuando llega al pueblo de D., rumbo a su pueblo natal y presenta su pasaporte -en el que figura como ex-reo y ''hombre peligroso''- en el ayuntamiento, nadie se digna a acogerle y a darle de comer, salvo don Bienvenido, el párroco. Traicionando a su protector, Valjean le roba la cubertería de plata, pero le detienen en los alrededores, llevándole frente al párroco. Don Bienvenido decide no denunciarle, pero le arranca una promesa: usar lo que ha tomado para hacerse un hombre de bien.
+En la historia de la literatura Los miserables ocupa un lugar privilegiado. Quizás porque Victor Hugo no sólo se ocupó de narrar, como habían hecho los que le precedieron, sino que también buscó voluntariamente un modelo que pudiera ser considerado como nove­la total, entendida como un género literario adecuado para poder decirlo todo de todo; un género, en conclusión, a la medida del hombre y el mundo moderno.</p>
+                      <!-- Enlace para abrir la página -->
+                       <a href="https://cdn.pruebat.org/recursos/recursos/Los-miserables.pdf" target="_blank"><button type="button" class="p-button">Prestamo</button></a>
+                       <div class="separador"></div>
+                       <button type="submit" formaction="#" ></button>
 
-              <p  id="precio">Edmondo De Amcis</p>
-            <button class="Button" type="button" onclick="agregarProducto('Rufles', 25.00);mostrarNotificacion();" >Solicitar Prestamo</button>
-
-
+                         <div class="separador"></div>
+                  </div>
+              </div>
 
   </div>
   </div>
@@ -117,83 +192,148 @@
   <div class="item">
 
     <figure>
-      <img src="eldoncel.webp"
+      <img src="{{ url_for('static', filename='elg.jpeg') }}"
       alt="imagen Chokis"
-      width="150" height="200">
+      width="150" height="200" class="iimage">
     </figure>
     <div class="info-products">
-      <h2 id="nombre">Don Enrique el doliente</h2>
-      <p  id="precio">Mariano José de Larra</p>
-      <button class="Button" type="button"  >Solicitar Prestamo</button>
+      <h2 class="nombre">El Gran Gatsby</h2>
+      <p  class="precio">Francis Scott Fitzgerald</p>
+      <!-- Botón para mostrar el popup -->
+      <button class="popup-btn" onclick="document.getElementById('popup13').classList.add('active')">Info</button>
 
+      <!-- Popup -->
+      <div id="popup13" class="popup">
+          <div class="popup-content">
+              <span class="close" onclick="document.getElementById('popup13').classList.remove('active')">&times;</span>
+               <div class="separador"></div>
+              <h2 >El Gran Gatsby</h2>
+              <p>Francis Scott Fitzgerald</p>
+              <p>En "El Gran Gatsby", Nick Carraway, un joven escritor, se traslada a Long Island durante la vibrante década de 1920. Su vida se enreda con la de Jay Gatsby, un enigmático anfitrión de lujosas fiestas que busca desesperadamente reconquistar a su antiguo amor, Daisy Buchanan. Sin embargo, Daisy está casada con Tom, un hombre adinerado, racista y soberbio.
+La trama se desenvuelve a medida que la relación clandestina entre Gatsby y Daisy se complica, revelando verdades impactantes sobre el pasado del protagonista. La narrativa alcanza su punto álgido cuando Tom, movido por celos y resentimientos, desentraña los oscuros secretos de Gatsby durante un enfrentamiento explosivo. La tragedia se desata cuando la amante del hipócrita Tom, Myrtle Wilson es atropellada a muerte por un automóvil amarillo, George Wilson, el esposo de Myrtle, creyendo erróneamente que el automóvil amarillo es de Tom, pero éste le convence que es de Gatsby, condenandolo, George busca venganza y termina arrebatándole la vida a Gatsby antes de quitarse la suya.</p>
+              <!-- Enlace para abrir la página -->
+               <a href="https://www.imprentanacional.go.cr/editorialdigital/libros/literatura%20universal/el_gran_gatsby_edincr.pdf" target="_blank"><button type="button" class="p-button">Prestamo</button></a>
+               <div class="separador"></div>
+               <button type="submit" formaction="#" ></button>
 
+                 <div class="separador"></div>
+          </div>
+      </div>
     </div>
   </div>
 
   <div class="item">
     <figure>
-      <img src="laedad.jpg"
+      <img src="{{ url_for('static', filename='pi.jpeg') }}"
       alt="imagen Chokis"
-      width="150" height="200">
+      width="150" height="200" class="iimage">
     </figure>
     <div class="info-products">
+      <h2 class="nombre">Piense y Hagase Rico</h2>
+      <p  class="precio">Napoleon Hill</p>
+      <!-- Botón para mostrar el popup -->
+      <button class="popup-btn" onclick="document.getElementById('popup14').classList.add('active')">Info</button>
 
-      <h2 id="nombre">La edad de la inocencia</h2>
+      <!-- Popup -->
+      <div id="popup14" class="popup">
+          <div class="popup-content">
+              <span class="close" onclick="document.getElementById('popup14').classList.remove('active')">&times;</span>
+               <div class="separador"></div>
+              <h2 >Piense y Hagase Rico</h2>
+              <p>Napoleon Hill</p>
+              <p>Piense y Hágase Rico es considerada como una obra pionera en el género de la autoayuda, basa su explicación del ansia del éxito fijando la riqueza como un objetivo real al que toda persona aspira lograr.
+Para ello se fundamenta en las características distintivas y similares notadas en hombres que habían alcanzado la riqueza en los Estados Unidos para esa época (período de la Gran Depresión, años 1930).
+Se plantea que el éxito es un camino lleno de eventualidades, que parte del pensamiento como única variable controlable dentro su logro y donde es necesaria la fortaleza mental como característica esencial que no hará desistir en el camino para lograr el éxito.</p>
+              <!-- Enlace para abrir la página -->
+               <a href="https://www.economicas.unsa.edu.ar/afinan/informacion_general/book/piense_y_hagase_rico.pdf" target="_blank"><button type="button" class="p-button">Prestamo</button></a>
+               <div class="separador"></div>
+               <button type="submit" formaction="#" ></button>
 
-      <p  id="precio">Edith Wharton</p>
-      <button class="Button"  type="button" onclick="agregarProducto('Canelitas', 15.00);mostrarNotificacion();" >Solicitar Prestamo</button>
-
-
+                 <div class="separador"></div>
+          </div>
+      </div>
     </div>
   </div>
 
   <div class="item">
-    <figure>
-      <img src="lasaventuras.jpg"
+
+      <img src="{{ url_for('static', filename='eg.webp') }}"
       alt="imagen Chokis"
-      width="150" height="200">
-    </figure>
+      width="150" height="200" class="iimage">
+
     <div class="info-products">
       <div class="separador"></div>
-      <h2 id="nombre">Sherlock Holmes</h2>
-      <p  id="precio">Arthurr Conan Doyle</p>
+      <h2 class="nombre">El Arte de la Guerra</h2>
+      <p  class="precio">Sun Tzu</p>
+      <!-- Botón para mostrar el popup -->
+      <button class="popup-btn" onclick="document.getElementById('popup15').classList.add('active')">Info</button>
+
+      <!-- Popup -->
+      <div id="popup15" class="popup">
+          <div class="popup-content">
+              <span class="close" onclick="document.getElementById('popup15').classList.remove('active')">&times;</span>
+               <div class="separador"></div>
+              <h2 >El Arte de la Guerra</h2>
+              <p>Sun Tzu</p>
+              <p>El arte de la guerra enseña a ganar desde la paz. En eso consiste la estrategia: la mejor manera de vencer es situarnos en una posición ganadora de antemano, que haga la guerra innecesaria. Si no alcanzamos esa posición, la guerra es una locura.</p>
+              <!-- Enlace para abrir la página -->
+               <a href="https://web.seducoahuila.gob.mx/biblioweb/upload/El_arte_de_la_guerra-Sun_Tzu.pdf" target="_blank"><button type="button" class="p-button">Prestamo</button></a>
+               <div class="separador"></div>
+               <button type="submit" formaction="#" ></button>
+
+                 <div class="separador"></div>
+          </div>
+      </div>
       <div class="separador"></div>
-      <button class="Button" type="button" onclick="agregarProducto('Principe', 20.00);mostrarNotificacion();" >Solicitar Prestamo</button>
-
-
     </div>
   </div>
 
   <div class="item">
     <figure>
-      <img src="elabanico.jpg"
+      <img src="{{ url_for('static', filename='elj.jpeg') }}"
       alt="imagen Chokis"
-      width="150" height="200">
+      width="150" height="200" class="iimage">
     </figure>
     <div class="info-products">
-      <h2 id="nombre">El abanico de lady Windermere</h2>
+      <h2 class="nombre">El Juego de la Vida y Cómo Jugarlo</h2>
+        <p  class="precio">Florence Scovel Shinn</p>
+      <!-- Botón para mostrar el popup -->
+      <button class="popup-btn" onclick="document.getElementById('popup16').classList.add('active')">Info</button>
 
-    <button class="Button" type="button" onclick="agregarProducto('F.de Naranjo', 25.00);mostrarNotificacion();" >Solicitar Prestamo</button>
+      <!-- Popup -->
+      <div id="popup16" class="popup">
+          <div class="popup-content">
+              <span class="close" onclick="document.getElementById('popup16').classList.remove('active')">&times;</span>
+               <div class="separador"></div>
+              <h2 >El Juego de la Vida y Cómo Jugarlo</h2>
+              <p>Florence Scovel Shinn</p>
+              <p>¿La vida es una pelea, un sufrimiento? Florence Scovel Shinn nos dice en esta maravillosa obra que la vida es un juego. Sí, un juego que si aprendemos a jugar de acuerdo con las enseñanzas metafísicas, entonces obtendremos la victoria. De esta manera aprenderemos a reconocer los triunfos que nos llevan a la victoria final: convertir el resentimiento en amor, la carencia en prosperidad, el miedo en confianza, la envidia en generosidad las reglas de este juego están basadas en las enseñanzas tanto del Antiguo como del Nuevo Testamento. El juego de la vida consiste en recibir y en dar. Así el significado profundo de estas enseñanzas es que recibirás lo que diste: si das amor, recibirás amor. Si odias, serás odiado. Está en nosotros decidir el rumbo del juego. Esta pequeña pero profundísima obra nos enseñará cómo cada uno de nosotros puede cambiar sus condiciones y circunstancias si pone atención en lo que se desea y qué tanto lo quiere.</p>
+              <!-- Enlace para abrir la página -->
+               <a href="https://www.institutosylviarealty.com/wp-content/uploads/2013/12/ElJuegoDeLaVidaYComoJugarlo-FlorenceScovelShinn.pdf" target="_blank"><button type="button" class="p-button">Prestamo</button></a>
+               <div class="separador"></div>
+               <button type="submit" formaction="#" ></button>
 
-
+                 <div class="separador"></div>
+          </div>
+      </div>
     </div>
-    <div class="separadorgrande"></div>
+    <div class="separador"></div>
 
   <!--paginador-->
 <div class="container py-4" >
 <nav>
-  <ul class="pagination pagination-lg justify-content-center"style="margin-left:-700px;">
+  <ul class="pagination pagination-lg justify-content-center"style="margin-left:-800px;">
     <li class="page-item disabled">
       <a class="page-link" href="#">Anterior</a>
     </li>
     <li class="page-item active">
-      <a class="page-link" href="libros.html">1</a>
+      <a class="page-link" href="{{ url_for('libros')}}">1</a>
     </li>
     <li class="page-item">
-      <a class="page-link" href="libros1.html">2</a>
+      <a class="page-link" href="#">2</a>
     </li>
     <li class="page-item">
-      <a class="page-link" href="#">3</a>
+      <a class="page-link" href="{{ url_for('libros2')}}">3</a>
     </li>
     <li class="page-item">
       <a class="page-link" href="#">Siguiente</a>
@@ -201,7 +341,7 @@
     </ul>
     </nav>
 </div>
-<div class="separadorgrande"></div>
+
 
 
 

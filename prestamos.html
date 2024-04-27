@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="refresh" content="100">
+    <title>Leer Libro</title>
+      <link rel="stylesheet" href="estilos.css">
+      <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            width:800px;
+            height:600px;
+            margin: auto;
+
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+
+              margin-top:25px;
+              background: rgb(232,243,244);
+              background: linear-gradient(0deg, rgba(232,243,244,1) 0%, rgba(115,113,112,1) 100%);
+        }
+        h1 {
+            color: #0D0D0D;
+            margin-top:15px;
+            align-items:center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            margin-top:20px;
+        }
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #444;
+            margin-top:40px;
+        }
+        input[type="text"],
+        input[type="submit"] {
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        input[type="submit"] {
+            background-color: #5c67cc;
+            color: white;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #5058b9;
+        }
+    </style>
+</head>
+<body>
+  <div class="container">
+       <h1>Prestar Libro: </h1>
+       <form action="{{ url_for('loan', book_id=book.id) }}" method="post">
+           <label for="username">Nombre de Usuario:</label>
+           <input type="text" id="username" name="username" required>
+           <input type="submit" value="Prestar Libro">
+       </form>
+       <form action="{{ url_for('loan', book_id=book.id) }}" method="post">
+           <label for="username">fecha en la que se solicita el libro:</label>
+           <input type="text" id="username" name="username" required>
+           <input type="submit" value="Prestar Libro">
+       </form>
+       <form action="{{ url_for('loan', book_id=book.id) }}" method="post">
+           <label for="username">fecha limite para entregarlo:</label>
+           <input type="text" id="username" name="username" required>
+           <input type="submit" value="Prestar Libro">
+       </form>
+
+</div>
+
+</body>
+</html>
